@@ -1,7 +1,5 @@
 package com.sorcererxw.demo.friendcircle.models;
 
-import android.graphics.drawable.Drawable;
-
 /**
  * @description:
  * @author: Sorcerer

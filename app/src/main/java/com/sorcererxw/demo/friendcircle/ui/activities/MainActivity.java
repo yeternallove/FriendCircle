@@ -38,13 +38,20 @@ public class MainActivity extends AppCompatActivity {
                                 "http://uupaper.oss-cn-qingdao.aliyuncs.com/b6eee5a620d6e14f4f8e5786f24244f7.jpeg",
                                 "Jack",
                                 "lala",
-                                new ArrayList<String>(),
-                                new Date(System.currentTimeMillis()-2000000000)),
+                                Arrays.asList(
+                                        "https://s-media-cache-ak0.pinimg.com/564x/a7/7c/11/a77c11589d8be49f9bad3cd52778a176.jpg"
+                                ),
+                                new Date(System.currentTimeMillis() - 2000000000)),
                         new GeneralBean(
                                 "http://uupaper.oss-cn-qingdao.aliyuncs.com/9c5b17a57bbf9c3279f9e2faf3b3e118.jpeg",
                                 "Nina",
                                 "lala",
-                                new ArrayList<String>(),
+                                Arrays.asList(
+                                        "https://s-media-cache-ak0.pinimg.com/564x/a7/7c/11/a77c11589d8be49f9bad3cd52778a176.jpg",
+                                        "http://uupaper.oss-cn-qingdao.aliyuncs.com/b6eee5a620d6e14f4f8e5786f24244f7.jpeg",
+                                        "http://uupaper.oss-cn-qingdao.aliyuncs.com/b6eee5a620d6e14f4f8e5786f24244f7.jpeg",
+                                        "http://uupaper.oss-cn-qingdao.aliyuncs.com/b6eee5a620d6e14f4f8e5786f24244f7.jpeg"
+                                ),
                                 new Date())
                 ));
         mRecyclerView.setAdapter(adapter);
