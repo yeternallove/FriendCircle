@@ -17,6 +17,5 @@
     <dimen name="item_general_avatar_margin_right">8dp</dimen>
     <dimen name="item_general_name_margin_bottom">4dp</dimen>
     <dimen name="item_general_content_margin_bottom">12dp</dimen>
-    <dimen name="item_general_image_grid_margin_right">20dp</dimen>
-
+    <dimen name="item_general_image_grid_image_size">88dp</dimen>
 </resources>

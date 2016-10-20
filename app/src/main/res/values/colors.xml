@@ -10,4 +10,5 @@
     <color name="colorGeneralContent">#383838</color>
     <color name="colorGeneralDivider">#D3D3D3</color>
     <color name="colorGeneralDate">#AAAAAA</color>
+    <color name="colorImagePlaceHolder">#EEEEEE</color>
 </resources>

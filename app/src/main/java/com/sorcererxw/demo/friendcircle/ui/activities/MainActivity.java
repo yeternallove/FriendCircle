@@ -1,12 +1,14 @@
-package com.sorcererxw.demo.friendcircle;
+package com.sorcererxw.demo.friendcircle.ui.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.sorcererxw.demo.friendcircle.R;
 import com.sorcererxw.demo.friendcircle.models.GeneralBean;
 import com.sorcererxw.demo.friendcircle.models.HeadBean;
+import com.sorcererxw.demo.friendcircle.ui.adapters.FriendCircleAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;

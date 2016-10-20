@@ -1,8 +1,9 @@
-package com.sorcererxw.demo.friendcircle;
+package com.sorcererxw.demo.friendcircle.ui.adapters;
 
 import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
+import com.sorcererxw.demo.friendcircle.R;
 import com.sorcererxw.demo.friendcircle.models.GeneralBean;
 import com.sorcererxw.demo.friendcircle.models.HeadBean;
 import com.sorcererxw.demo.friendcircle.util.DateUtil;
@@ -22,6 +21,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 /**
  * @description:
@@ -69,10 +70,12 @@ public class FriendCircleAdapter
             HeadViewHolder headViewHolder = (HeadViewHolder) holder;
             Glide.with(mContext)
                     .load(mHeadBean.getHeadAvatar())
+                    .placeholder(R.color.colorImagePlaceHolder)
                     .into(headViewHolder.avatar);
             Glide.with(mContext)
                     .load(mHeadBean.getHeadBackground())
                     .centerCrop()
+                    .placeholder(R.color.colorImagePlaceHolder)
                     .into(headViewHolder.background);
             headViewHolder.name.setText(mHeadBean.getHeadName());
         } else {
@@ -80,6 +83,7 @@ public class FriendCircleAdapter
             GeneralBean generalBean = mGeneralBeanList.get(position - 1);
             Glide.with(mContext)
                     .load(Uri.parse(generalBean.getAvatar()))
+                    .placeholder(R.color.colorImagePlaceHolder)
                     .into(generalViewHolder.avatar);
             generalViewHolder.content.setText(generalBean.getContent());
             generalViewHolder.name.setText(generalBean.getName());
@@ -90,9 +94,42 @@ public class FriendCircleAdapter
 
                 int size = imageList.size();
                 int rowCount = (int) Math.sqrt(size);
-                
-                for (String image : generalBean.getImageList()) {
-                    ImageView imageView = new ImageView(mContext);
+                int columnCount = size / rowCount;
+
+                generalViewHolder.gridLayout.setRowCount(rowCount);
+                generalViewHolder.gridLayout.setColumnCount(columnCount);
+
+                int k = 0;
+                for (int i = 0; i < rowCount; i++) {
+                    for (int j = 0; j < columnCount; j++) {
+                        if (k >= size) {
+                            break;
+                        }
+                        GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams();
+                        layoutParams.setGravity(Gravity.CENTER);
+                        layoutParams.rowSpec = GridLayout.spec(i);
+                        layoutParams.columnSpec = GridLayout.spec(j);
+
+                        if (size == 1) {
+                            layoutParams.width = WRAP_CONTENT;
+                            layoutParams.height = WRAP_CONTENT;
+                        } else {
+                            layoutParams.width = (int) mContext.getResources()
+                                    .getDimension(R.dimen.item_general_image_grid_image_size);
+                            layoutParams.height = (int) mContext.getResources()
+                                    .getDimension(R.dimen.item_general_image_grid_image_size);
+                        }
+
+                        ImageView imageView = new ImageView(mContext);
+                        imageView.setLayoutParams(layoutParams);
+                        generalViewHolder.gridLayout.addView(imageView);
+
+
+                        Glide.with(mContext)
+                                .load(imageList.get(k))
+                                .placeholder(R.color.colorImagePlaceHolder)
+                                .into(imageView);
+                    }
                 }
             } else {
                 generalViewHolder.gridLayout.setVisibility(View.GONE);
@@ -110,7 +147,7 @@ public class FriendCircleAdapter
 
     static class FriendCircleViewHolder extends RecyclerView.ViewHolder {
 
-        public FriendCircleViewHolder(View itemView) {
+         FriendCircleViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }

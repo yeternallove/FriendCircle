@@ -42,7 +42,6 @@
 
             <GridLayout
                 android:id="@+id/gridLayout_item_general"
-                android:layout_marginRight="@dimen/item_general_image_grid_margin_right"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
