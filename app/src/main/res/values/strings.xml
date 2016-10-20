@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Friend Circle</string>
+
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="days_ago">{count} days ago</string>
+    <string name="weeks_ago">{count} weeks ago</string>
+    <string name="months_ago">{count} months ago</string>
+    <string name="years_ago">{count} years ago</string>
+</resources>
