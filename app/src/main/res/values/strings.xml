@@ -7,4 +7,6 @@
     <string name="weeks_ago">{count} weeks ago</string>
     <string name="months_ago">{count} months ago</string>
     <string name="years_ago">{count} years ago</string>
+    <string name="action_like">Like</string>
+    <string name="action_comment">Comment</string>
 </resources>

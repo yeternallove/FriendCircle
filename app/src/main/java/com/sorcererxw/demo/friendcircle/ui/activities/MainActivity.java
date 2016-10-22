@@ -1,9 +1,15 @@
 package com.sorcererxw.demo.friendcircle.ui.activities;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.ContextMenu;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 
 import com.sorcererxw.demo.friendcircle.R;
 import com.sorcererxw.demo.friendcircle.models.GeneralBean;
@@ -58,5 +64,25 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(
                 new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mRecyclerView.setHasFixedSize(true);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                final View v = MainActivity.this.findViewById(R.id.action_comment_camera);
+                if (v != null) {
+                    v.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View v) {
+                            return false;
+                        }
+                    });
+                }
+            }
+        });
+        return true;
     }
 }

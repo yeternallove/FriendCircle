@@ -20,4 +20,7 @@
     <dimen name="item_general_image_grid_image_size">88dp</dimen>
     <dimen name="item_general_image_grid_image_margin">1dp</dimen>
     <dimen name="item_general_image_grid_image_max_width">200dp</dimen>
+    <dimen name="item_general_image_grid_image_margin_bottom">12dp</dimen>
+    <dimen name="item_general_comment_button_margin_right">12dp</dimen>
+    <dimen name="item_general_comment_button_size">24dp</dimen>
 </resources>

@@ -41,22 +41,32 @@
                 android:layout_height="wrap_content"/>
 
             <GridLayout
+                android:layout_marginBottom="@dimen/item_general_image_grid_image_margin_bottom"
                 android:id="@+id/gridLayout_item_general"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/textView_item_general_date"
                     tools:text="today"
+                    android:layout_centerVertical="true"
                     android:textColor="@color/colorGeneralDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-            </LinearLayout>
+
+                <ImageButton
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/comment"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/imageButton_item_general_comment"
+                    android:layout_marginRight="@dimen/item_general_comment_button_margin_right"
+                    android:layout_width="@dimen/item_general_comment_button_size"
+                    android:layout_height="@dimen/item_general_comment_button_size" />
+            </RelativeLayout>
         </LinearLayout>
 
     </RelativeLayout>

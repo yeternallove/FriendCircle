@@ -3,12 +3,14 @@ package com.sorcererxw.demo.friendcircle.ui.adapters;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -184,7 +186,16 @@ public class FriendCircleAdapter
             }
             generalViewHolder.date
                     .setText(DateUtil.getDateString(mContext, generalBean.getPublishDate()));
-
+            generalViewHolder.commentButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    PopupMenu popupMenu = new PopupMenu(mContext,view);
+                    popupMenu.getMenuInflater()
+                            .inflate(R.menu.menu_comment,popupMenu.getMenu());
+                    popupMenu.setGravity(Gravity.LEFT);
+                    popupMenu.show();
+                }
+            });
         }
     }
 
@@ -233,6 +244,9 @@ public class FriendCircleAdapter
 
         @BindView(R.id.textView_item_general_date)
         TextView date;
+
+        @BindView(R.id.imageButton_item_general_comment)
+        ImageButton commentButton;
 
         GeneralViewHolder(View itemView) {
             super(itemView);
