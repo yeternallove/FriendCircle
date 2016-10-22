@@ -1,7 +1,10 @@
 package com.sorcererxw.demo.friendcircle.ui.adapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -12,9 +15,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.Transformation;
+import com.bumptech.glide.load.engine.Resource;
+import com.bumptech.glide.load.resource.SimpleResource;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.sorcererxw.demo.friendcircle.R;
 import com.sorcererxw.demo.friendcircle.models.GeneralBean;
 import com.sorcererxw.demo.friendcircle.models.HeadBean;
+import com.sorcererxw.demo.friendcircle.ui.views.ResizingImageView;
 import com.sorcererxw.demo.friendcircle.util.DateUtil;
 
 import java.util.List;
@@ -102,7 +112,8 @@ public class FriendCircleAdapter
                 int k = 0;
                 for (int i = 0; i < rowCount; i++) {
                     for (int j = 0; j < columnCount; j++) {
-                        if (k >= size) {
+                        if (k >= size || k >= 9) {
+                            // 超过总数
                             break;
                         }
                         GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams();
@@ -111,24 +122,67 @@ public class FriendCircleAdapter
                         layoutParams.columnSpec = GridLayout.spec(j);
 
                         if (size == 1) {
+                            // 如果只有一张就完整显示
                             layoutParams.width = WRAP_CONTENT;
                             layoutParams.height = WRAP_CONTENT;
+
+                            ImageView imageView = new ImageView(mContext);
+                            imageView.setLayoutParams(layoutParams);
+                            generalViewHolder.gridLayout.addView(imageView);
+
+                            final int maxWidth = (int) mContext.getResources()
+                                    .getDimension(R.dimen.item_general_image_grid_image_max_width);
+
+                            Glide.with(mContext)
+                                    .load(imageList.get(k))
+                                    .asBitmap()
+                                    .transform(new Transformation<Bitmap>() {
+                                        @Override
+                                        public Resource<Bitmap> transform(Resource<Bitmap> resource,
+                                                                          int outWidth,
+                                                                          int outHeight) {
+                                            int height = resource.get().getHeight();
+                                            int width = resource.get().getWidth();
+                                            if (width > maxWidth) {
+                                                int time = width / maxWidth;
+                                                width /= time;
+                                                height /= time;
+                                            }
+                                            Bitmap resizedBitmap = Bitmap.createScaledBitmap(
+                                                    resource.get(), width, height, false);
+
+                                            return new SimpleResource<>(resizedBitmap);
+                                        }
+
+                                        @Override
+                                        public String getId() {
+                                            return "";
+                                        }
+                                    })
+                                    .placeholder(R.color.colorImagePlaceHolder)
+                                    .into(imageView);
                         } else {
+                            // 否则就显示为一个方块
                             layoutParams.width = (int) mContext.getResources()
                                     .getDimension(R.dimen.item_general_image_grid_image_size);
                             layoutParams.height = (int) mContext.getResources()
                                     .getDimension(R.dimen.item_general_image_grid_image_size);
+
+                            int margin = (int) mContext.getResources()
+                                    .getDimension(R.dimen.item_general_image_grid_image_margin);
+                            layoutParams.setMargins(margin, margin, margin, margin);
+
+                            ImageView imageView = new ImageView(mContext);
+                            imageView.setLayoutParams(layoutParams);
+                            generalViewHolder.gridLayout.addView(imageView);
+
+                            Glide.with(mContext)
+                                    .load(imageList.get(k))
+                                    .placeholder(R.color.colorImagePlaceHolder)
+                                    .centerCrop()
+                                    .into(imageView);
                         }
-
-                        ImageView imageView = new ImageView(mContext);
-                        imageView.setLayoutParams(layoutParams);
-                        generalViewHolder.gridLayout.addView(imageView);
-
-
-                        Glide.with(mContext)
-                                .load(imageList.get(k))
-                                .placeholder(R.color.colorImagePlaceHolder)
-                                .into(imageView);
+                        k++;
                     }
                 }
             } else {
@@ -147,7 +201,7 @@ public class FriendCircleAdapter
 
     static class FriendCircleViewHolder extends RecyclerView.ViewHolder {
 
-         FriendCircleViewHolder(View itemView) {
+        FriendCircleViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
