@@ -2,9 +2,7 @@ package com.sorcererxw.demo.friendcircle.ui.adapters;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -18,13 +16,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.resource.SimpleResource;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
 import com.sorcererxw.demo.friendcircle.R;
 import com.sorcererxw.demo.friendcircle.models.GeneralBean;
 import com.sorcererxw.demo.friendcircle.models.HeadBean;
-import com.sorcererxw.demo.friendcircle.ui.views.ResizingImageView;
 import com.sorcererxw.demo.friendcircle.util.DateUtil;
 
 import java.util.List;

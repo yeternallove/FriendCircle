@@ -34,7 +34,10 @@ public class DateUtil {
         } else if (offset <= WEEK) {
             return context.getString(R.string.days_ago)
                     .replace(COUNT_REPLACEMENT, String.valueOf(offset / DAY));
-        } else if (offset <= MONTH) {
+        }  else if (offset <= MONTH) {
+            return context.getString(R.string.months_ago)
+                    .replace(COUNT_REPLACEMENT, String.valueOf(offset / WEEK));
+        } else if (offset <= YEAR) {
             return context.getString(R.string.months_ago)
                     .replace(COUNT_REPLACEMENT, String.valueOf(offset / MONTH));
         } else {
