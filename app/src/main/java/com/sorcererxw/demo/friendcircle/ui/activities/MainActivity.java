@@ -36,30 +36,57 @@ public class MainActivity extends AppCompatActivity {
 
         FriendCircleAdapter adapter = new FriendCircleAdapter(this,
                 new HeadBean(
-                        "https://s-media-cache-ak0.pinimg.com/564x/a7/7c/11/a77c11589d8be49f9bad3cd52778a176.jpg",
-                        "https://avatars3.githubusercontent.com/u/11501524?v=3&s=466",
-                        "SorcererXW"),
+                        "http://img0.imgtn.bdimg.com/it/u=2075776712,3107953298&fm=21&gp=0.jpg",
+                        "http://wenwen.soso.com/p/20110814/20110814160542-1916500023.jpg",
+                        "啦啦啦"),
                 Arrays.asList(
                         new GeneralBean(
-                                "http://uupaper.oss-cn-qingdao.aliyuncs.com/b6eee5a620d6e14f4f8e5786f24244f7.jpeg",
-                                "Jack",
+                                "http://img0w.pconline.com.cn/pconline/1309/11/3464151_25.jpg",
+                                "cxf",
                                 "lala",
                                 Arrays.asList(
-                                        "https://s-media-cache-ak0.pinimg.com/564x/a7/7c/11/a77c11589d8be49f9bad3cd52778a176.jpg"
+                                        "http://img0w.pconline.com.cn/pconline/1309/11/3464151_26.jpg"
                                 ),
                                 new Date(System.currentTimeMillis() - 2000000000)),
                         new GeneralBean(
-                                "http://uupaper.oss-cn-qingdao.aliyuncs.com/9c5b17a57bbf9c3279f9e2faf3b3e118.jpeg",
-                                "Nina",
+                                "http://img0w.pconline.com.cn/pconline/1309/11/3464151_26.jpg",
+                                "DJ",
                                 "lala",
                                 Arrays.asList(
-                                        "https://s-media-cache-ak0.pinimg.com/564x/a7/7c/11/a77c11589d8be49f9bad3cd52778a176.jpg",
-                                        "http://uupaper.oss-cn-qingdao.aliyuncs.com/b6eee5a620d6e14f4f8e5786f24244f7.jpeg",
-                                        "http://uupaper.oss-cn-qingdao.aliyuncs.com/b6eee5a620d6e14f4f8e5786f24244f7.jpeg",
-                                        "http://uupaper.oss-cn-qingdao.aliyuncs.com/b6eee5a620d6e14f4f8e5786f24244f7.jpeg"
+                                        "http://p2.gexing.com/G1/M00/BE/E8/rBACFFP5O-_C8g25AAAcHiXXCRw039_200x200_3.jpg?recache=20131108",
+                                        "http://p1.gexing.com/G1/M00/BE/E8/rBACFFP5O-_Bc-NsAAAdxGiqf-I588_200x200_3.jpg?recache=20131108",
+                                        "http://p2.gexing.com/G1/M00/BE/E8/rBACFFP5O-_C8g25AAAcHiXXCRw039_200x200_3.jpg?recache=20131108",
+                                        "http://p1.gexing.com/G1/M00/BE/E8/rBACFFP5O-_Bc-NsAAAdxGiqf-I588_200x200_3.jpg?recache=20131108"
+                                ),
+                                new Date()),
+                        new GeneralBean(
+                "http://img0w.pconline.com.cn/pconline/1309/11/3464151_26.jpg",
+                "DJ",
+                "lala",
+                Arrays.asList(
+                        "https://s-media-cache-ak0.pinimg.com/564x/a7/7c/11/a77c11589d8be49f9bad3cd52778a176.jpg",
+                        "http://uupaper.oss-cn-qingdao.aliyuncs.com/b6eee5a620d6e14f4f8e5786f24244f7.jpeg",
+                        "http://uupaper.oss-cn-qingdao.aliyuncs.com/b6eee5a620d6e14f4f8e5786f24244f7.jpeg"
+                ),
+                new Date()),
+                        new GeneralBean(
+                                "http://img0w.pconline.com.cn/pconline/1309/11/3464151_26.jpg",
+                                "DJ",
+                                "lala",
+                                Arrays.asList(
+                                        "http://p2.gexing.com/G1/M00/BE/E8/rBACFFP5O-_C8g25AAAcHiXXCRw039_200x200_3.jpg?recache=20131108",
+                                        "http://p1.gexing.com/G1/M00/BE/E8/rBACFFP5O-_Bc-NsAAAdxGiqf-I588_200x200_3.jpg?recache=20131108",
+                                        "http://p2.gexing.com/G1/M00/BE/E8/rBACFFP5O-_C8g25AAAcHiXXCRw039_200x200_3.jpg?recache=20131108",
+                                        "http://p1.gexing.com/G1/M00/BE/E8/rBACFFP5O-_Bc-NsAAAdxGiqf-I588_200x200_3.jpg?recache=20131108",
+                                        "http://p2.gexing.com/G1/M00/BE/E8/rBACFFP5O-_C8g25AAAcHiXXCRw039_200x200_3.jpg?recache=20131108",
+                                        "http://p1.gexing.com/G1/M00/BE/E8/rBACFFP5O-_Bc-NsAAAdxGiqf-I588_200x200_3.jpg?recache=20131108",
+                                        "http://p2.gexing.com/G1/M00/BE/E8/rBACFFP5O-_C8g25AAAcHiXXCRw039_200x200_3.jpg?recache=20131108",
+                                        "http://p1.gexing.com/G1/M00/BE/E8/rBACFFP5O-_Bc-NsAAAdxGiqf-I588_200x200_3.jpg?recache=20131108",
+                                        "http://p1.gexing.com/G1/M00/BE/E8/rBACFFP5O-_Bc-NsAAAdxGiqf-I588_200x200_3.jpg?recache=20131108"
                                 ),
                                 new Date())
-                ));
+
+        ));
         mRecyclerView.setAdapter(adapter);
         mRecyclerView.setLayoutManager(
                 new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));

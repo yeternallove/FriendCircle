@@ -123,6 +123,11 @@ public class FriendCircleAdapter
                             layoutParams.height = WRAP_CONTENT;
 
                             ImageView imageView = new ImageView(mContext);
+                            imageView.setMinimumHeight((int) mContext.getResources()
+                                    .getDimension(R.dimen.item_general_image_grid_image_size));
+                            imageView.setMinimumWidth((int) mContext.getResources()
+                                    .getDimension(R.dimen.item_general_image_grid_image_size));
+
                             imageView.setLayoutParams(layoutParams);
                             generalViewHolder.gridLayout.addView(imageView);
 
@@ -131,30 +136,30 @@ public class FriendCircleAdapter
 
                             Glide.with(mContext)
                                     .load(imageList.get(k))
-                                    .asBitmap()
-                                    .transform(new Transformation<Bitmap>() {
-                                        @Override
-                                        public Resource<Bitmap> transform(Resource<Bitmap> resource,
-                                                                          int outWidth,
-                                                                          int outHeight) {
-                                            int height = resource.get().getHeight();
-                                            int width = resource.get().getWidth();
-                                            if (width > maxWidth) {
-                                                int time = width / maxWidth;
-                                                width /= time;
-                                                height /= time;
-                                            }
-                                            Bitmap resizedBitmap = Bitmap.createScaledBitmap(
-                                                    resource.get(), width, height, false);
+//                                    .asBitmap()
+//                                    .transform(new Transformation<Bitmap>() {
+//                                        @Override
+//                                        public Resource<Bitmap> transform(Resource<Bitmap> resource,
+//                                                                          int outWidth,
+//                                                                          int outHeight) {
+//                                            int height = resource.get().getHeight();
+//                                            int width = resource.get().getWidth();
+//                                            if (width > maxWidth) {
+//                                                int time = width / maxWidth;
+//                                                width /= time;
+//                                                height /= time;
+//                                            }
+//                                            Bitmap resizedBitmap = Bitmap.createScaledBitmap(
+//                                                    resource.get(), width, height, false);
 
-                                            return new SimpleResource<>(resizedBitmap);
-                                        }
+//                                            return new SimpleResource<>(resizedBitmap);
+//                                        }
 
-                                        @Override
-                                        public String getId() {
-                                            return "";
-                                        }
-                                    })
+//                                        @Override
+//                                        public String getId() {
+//                                            return "";
+//                                        }
+//                                    })
                                     .placeholder(R.color.colorImagePlaceHolder)
                                     .into(imageView);
                         } else {
@@ -246,7 +251,7 @@ public class FriendCircleAdapter
         TextView date;
 
         @BindView(R.id.imageButton_item_general_comment)
-        ImageButton commentButton;
+        ImageView commentButton;
 
         GeneralViewHolder(View itemView) {
             super(itemView);
